@@ -24,7 +24,8 @@ services:
 
   homeassistant:
     container_name: hass
-    image: homeassistant/home-assistant:stable
+    build:
+      context: build-hass
     volumes:
       - /opt/hass:/config
       - /opt/hass_media:/media
@@ -39,7 +40,7 @@ services:
   node-red:
     container_name: node-red
     build:
-      context: ./node-red
+      context: build-node-red
     ports:
       - "1880:1880"
     volumes:
