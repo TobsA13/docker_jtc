@@ -43,6 +43,8 @@ services:
       context: build-node-red
     ports:
       - "1880:1880"
+    extra_hosts:
+      - "docker-host:host-gateway"
     volumes:
       - node-red-data:/data
     depends_on:
